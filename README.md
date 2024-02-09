@@ -11,8 +11,8 @@ The user can Comment out in posts after logging in in the website.User also able
 Scrrenshots:
 
 #### Home Page
+![image](https://github.com/Vianypal/blog-website/assets/89671983/4fd2a89d-3d82-4625-befc-0636133384de)
 
-![Screenshot (450)](https://github.com/DebasishMohanta10/BlogWebApp/assets/96058790/e98a9a08-69d8-4356-9b20-84b7589e57b7)
 
 ##### Single Post View
 ![Screenshot (452)](https://github.com/DebasishMohanta10/BlogWebApp/assets/96058790/3dcf4100-c065-4d9b-aa26-3a9715ae3775)
