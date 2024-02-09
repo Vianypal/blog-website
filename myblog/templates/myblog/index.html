@@ -1,0 +1,75 @@
+{% extends 'myblog/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block header %}
+    {% include 'myblog/_partials/slider.html' %}
+{% endblock %}
+{% block body %}
+    <!-- Blog Entries -->
+
+    <div class="container">
+        <h1 class="my-4">Latest blog entries</h1>
+        <div class="row gy-4 gx-4">
+            {% for post in page_obj %}
+              <div class="col-md-4">
+                  <div class="card shadow-sm">
+                    <img src="{% static post.image %}" alt="" class="card-img-top" style="height: 250px;">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ post.h1 }}</h4>
+                        <p class="card-text">{{ post.description | truncatechars:200 }}</p>
+                        <div class="mb-3">
+                          {% for tag in post.tag.all %}
+                            <a href="{% url 'tag_view' tag.slug %}" class="me-1 badge bg-info rounded-1 text-decoration-none">#{{ tag }}</a>
+                          {% endfor %}
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                              <a href="{% url 'post-detail' post.url %}" class="btn btn-sm btn-outline-secondary">More</a>
+                          </div>
+                        <small class="text-muted">{{ post.created_at }}</small>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pagination %}
+    <!-- Pagination -->
+    <nav aria-label="Page navigation example" class="my-5">
+        <ul class="pagination justify-content-center">
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="{% url 'index' %}?page={{page_obj.previous_page_number}}">Previous</a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          {% endif %}
+
+          {% for i in page_obj.paginator.page_range %}
+            {% if i == page_obj.number %}
+              <li class="page-item active"><a class="page-link" href="{% url 'index' %}?page={{i}}">{{i}}</a></li>
+            {% else %}
+              <li class="page-item"><a class="page-link" href="{% url 'index' %}?page={{i}}">{{i}}</a></li>
+            {% endif %}
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="{% url 'index' %}?page={{page_obj.next_page_number}}">Next</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" href="{% url 'index' %}">Next</a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+      <br>
+{% endblock %}

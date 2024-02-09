@@ -1,0 +1,22 @@
+{% extends 'myblog/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block header %}
+    <div class="container text-center my-3">
+        <h1>Register</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row mx-auto" style="width: 60%;">
+            <form method="post" class="my-5">
+                {% csrf_token %}
+                {{ form }}  
+                <input type="submit" value="Register" class="btn btn-primary form-control my-3">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

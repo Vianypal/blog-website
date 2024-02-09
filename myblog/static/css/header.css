@@ -1,0 +1,21 @@
+.home-slider{
+    padding: 0;
+}
+.home-slider h5{
+    font-size: 48px;
+}
+
+.home-slider p{
+    font-size: 24px;
+}
+
+.carousel-caption {
+    bottom: 40%;
+}
+.carousel-item {
+    height: 20rem;
+}
+
+.carousel image{
+    height: 100%;
+}

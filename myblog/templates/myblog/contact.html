@@ -1,0 +1,64 @@
+{% extends 'myblog/base.html' %}
+{% load static %}
+
+{% block title %}{{ post.h1 }}{% endblock %}
+
+{% block header %}
+    {% include 'myblog/_partials/header.html' %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <nav aria-label="breadcrumb" class="mt-4 bg-light pt-3 pb-1 ps-3 mb-4 rounded">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Contacts</li>
+                </ol>
+            </nav>
+        </div>
+
+        <form name="contact-form" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="md-form mb-0">
+                        <label for="name" class="sr-only mb-2">Your Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Your Name" name="name">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="md-form mb-0">
+                        <label for="email" class="sr-only mb-2">Your E-mail</label>
+                        <input type="text" id="email" class="form-control" placeholder="Your E-mail" name="email">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="md-form mb-0">
+                        <label for="subject" class="sr-only mb-2">Subject</label>
+                        <input type="text" id="subject" class="form-control" placeholder="Subject" name="subject">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="md-form">
+                        <label for="message" class="sr-only mb-2">your message</label>
+                        <textarea type="text" id="message" rows="2" class="form-control md-textarea" placeholder="your message" name="message"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center text-md-start mt-3 mb-3">
+                <button class="btn btn-primary" type="submit">Send Message</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

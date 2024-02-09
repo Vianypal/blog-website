@@ -1,0 +1,19 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+</head>
+
+<div class="container-fluid home-slider">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-color: #343a40 !important">
+                <div class="carousel-caption d-none d-md-block">
+                    <form action="" method="get">
+                        <input type="text" name="q" class="form-control" placeholder="Search Here">
+                        <input type="submit" value="Search Query" class="btn btn-light pb-2 mt-3">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
