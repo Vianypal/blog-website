@@ -15,7 +15,8 @@ Scrrenshots:
 
 
 ##### Single Post View
-![Screenshot (452)](https://github.com/DebasishMohanta10/BlogWebApp/assets/96058790/3dcf4100-c065-4d9b-aa26-3a9715ae3775)
+![image](https://github.com/Vianypal/blog-website/assets/89671983/da32a1be-7c80-48f5-aea7-84bdd8920598)
+
 
 #### Login Page
 
